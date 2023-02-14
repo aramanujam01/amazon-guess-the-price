@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/game.css') }}">
+    </head>
+    <body>
+        <div class="title-header">
+            <h1> Amazon Guess The Price </h1>
+        </div>
+        <div class="game-content">
+            <div class="img-container">
+                <img id="product-img" style="width: 90%; height: 90%;" src= {{ state.image }}/>
+            </div>
+            <hr/>
+            <div class="info-and-guess">
+                <h1> {{ state.name }} </h1>
+                <div class="guess">
+                    <form action="/game-result" id="submit-form">
+                        <div class="form-input">
+                            <input type="number" name="guess1" min="0" max="9" value="0" onKeyDown="return false">
+                            <input type="number" name="guess2" min="0" max="9" value="0" onKeyDown="return false">
+                            <input type="number" name="guess3" min="0" max="9" value="0" onKeyDown="return false">
+                            <h1 id="period"> . </h1>
+                            <input type="number" name="guess4" min="0" max="9" value="0" onKeyDown="return false">
+                            <input type="number" name="guess5" min="0" max="9" value="0" onKeyDown="return false">
+                        </div>
+                        <div class="submit-guess">
+                            <input type="submit" id='submit-button' value="Submit">
+                            </input>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="score-card">
+            <h1 style="margin-left: 5%;"> Score:   {{ state.score }} </h1>
+            <h1> Round:   {{ state.curr_round }}/{{ rules.rounds }}</h1>
+            <button id='next-button' type="button" disabled><h2>Next</h2></button>
+        </div>
+    </body>
+</html>

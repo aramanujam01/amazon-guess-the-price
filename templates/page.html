@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/page.css') }}">
+    </head>
+    <body>
+        <div class="title-header">
+            <h1> Amazon Guess The Price </h1>
+        </div>
+        <div class="body-content">
+            <div class="instructions">
+                <h1> Instructions </h1>
+                <hr/>
+                <h3>
+                    Guess the price of the random amazon product and
+                    aim for the closest price possible. Toggle the types of products
+                    and information you receive about the product as an extra challenge.
+                    Enjoy!
+                </h3>
+            </div>
+            <div class="settings">
+                <div class="toggleable">
+                    <h3>Categories</h3>
+                    <select name="categories" id="categories">
+                        <option value="All">All</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Food">Food</option>
+                        <option value="Toys">Toys</option>
+                    </select>
+                </div>
+                <div class="toggleable">
+                    <h3>Rounds</h3>
+                    <select name="rounds" id="rounds">
+                        <option value="five">5</option>
+                        <option value="ten">10</option>
+                        <option value="fifteen">15</option>
+                        <option value="twenty">20</option>
+                    </select>
+                </div>
+                <div class="toggleable">
+                    <h3>Product Name</h3>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="toggleable">
+                    <h3>Product Description</h3>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="play-button">
+            <a href="game">
+                <button id='submit-button' type="button"><h2>Play</h2></button>
+            </a>
+        </div>
+    </body>
+</html>

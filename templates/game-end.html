@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/page.css') }}">
+    </head>
+    <body>
+        <div class="title-header">
+            <h1> Amazon Guess The Price </h1>
+        </div>
+        <div class="body-content">
+            <div class="instructions">
+                <h1> Results </h1>
+                <hr/>
+                <h2 style="text-align:center"> Score: {{ state.score }} / {{ rules.rounds * 1000 }}</h2>
+                <h2 style="text-align:center"> Average Price: {{ avg_price }} </h2>
+                <hr/>
+                <h3 style="text-align:center"> Thanks for playing! All products are available for purchase below.</h3>
+            </div>
+            <div class="settings">
+                <div class="toggleable">
+                    <h3>Categories</h3>
+                    <select name="categories" id="categories">
+                        <option value="All">All</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Food">Food</option>
+                        <option value="Toys">Toys</option>
+                    </select>
+                </div>
+                <div class="toggleable">
+                    <h3>Rounds</h3>
+                    <select name="rounds" id="rounds">
+                        <option value="five">5</option>
+                        <option value="ten">10</option>
+                        <option value="fifteen">15</option>
+                        <option value="twenty">20</option>
+                    </select>
+                </div>
+                <div class="toggleable">
+                    <h3>Product Name</h3>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+                <div class="toggleable">
+                    <h3>Product Description</h3>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-level">
+            <div class="product-links">
+                {%for product in rules.products_static%}
+                    <div class="img-container">
+                        <img style="width: 90%; height: 90%; border-radius: 12px;" src= {{ product.image_src }}/>
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
+    </body>
+</html>

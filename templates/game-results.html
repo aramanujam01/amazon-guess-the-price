@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/game.css') }}">
+    </head>
+    <body>
+        <div class="title-header">
+            <h1> Amazon Guess The Price </h1>
+        </div>
+        <div class="game-content">
+            <div class="img-container">
+                <img id="product-img" style="width: 90%; height: 90%;" src= {{ state.image }}/>
+            </div>
+            <hr/>
+            <div class="info-and-guess">
+                <h1> {{ state.name }} </h1>
+                <div class="guess">
+                    <h1> Your Guess: {{ guess }}</h1>
+                    <h1> Actual: {{ state.price }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="score-card">
+            <h1 style="margin-left: 5%;"> Score:   {{ state.score }} </h1>
+            <h1> Round:   {{ state.curr_round }}/{{ rules.rounds }}</h1>
+            <button id='next-button' type="button">
+                <a href="game">
+                    <h2> Next </h2>
+                </a>
+            </button>
+        </div>
+    </body>
+</html>
